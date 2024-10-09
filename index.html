@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Drills d'Échecs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" integrity="sha512-TU/clvRaSqKB43MX6dvJPEWV8tEGDTbmT4mdxTs6DSYsBY9zKmiw4Qeykp0nS10ndH14HRNG2VWN+IjiMfA17Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #board {
+            width: 400px;
+            margin: 20px auto;
+        }
+        #controls {
+            text-align: center;
+        }
+        #message {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            height: 20px;
+        }
+        .message-success {
+            color: green;
+        }
+        .message-error {
+            color: red;
+        }
+        #currentLine, #pgnScenario {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        #scenarioList {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+
+<div id="controls">
+    <h1>Drills d'Échecs</h1>
+    <input type="file" id="pgnFileInput" accept=".pgn" multiple>
+    <button id="startDrill">Commencer l'entraînement</button>
+    <button id="flipBoard">Tourner le plateau</button>
+    <button id="showSolution">Afficher la solution</button>
+    <br><br>
+    <label for="playerColor">Jouer les coups des :</label>
+    <select id="playerColor">
+        <option value="white">Blancs</option>
+        <option value="black">Noirs</option>
+    </select>
+    <br><br>
+    <p id="progress">Progression : 0/0 (0%)</p>
+</div>
+
+<div id="message"></div>
+<div id="currentLine"></div>
+<div id="pgnScenario"></div>
+
+<div id="scenarioList"></div>
+
+<div id="board"></div>
+
+<!-- Inclusion des scripts dans le bon ordre -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Inclusion de pgn-parser -->
+<script src="https://cdn.jsdelivr.net/npm/@mliebelt/pgn-parser@1.4.15/lib/index.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js" integrity="sha512-WfASs5HtTgTL/eZsLaOftSN9wMQl7WZGlU5UiKx/yxTViMfGh9whWRwKAC27qH8VtZJqSMqDdbq2uUb1tY3jvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
